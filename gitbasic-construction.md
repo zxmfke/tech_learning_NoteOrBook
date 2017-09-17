@@ -35,8 +35,10 @@ all instructions execute in git bash
 ##### 5. All these just build in local, so this step is connecting to the github remote server.
     $ git remote add origin https://github.com/zxmfke/tech\_learning\_note.git
    The url after origin is the repository you constructed in your github. "Origin" means your remote server location.
+   
    If you want to modify the server locaition
-       $ git remote set-url origin https://github.com/zxmfke/tech\_learning\_note.git
+   
+   $ git remote set-url origin https://github.com/zxmfke/tech\_learning\_note.git
 ##### 6.  So the repository is ready, we should push added file into repository\( I committed for test2.txt so the commitment is "version 2"\)
      $ git push origin HEAD
    "Origin" is defined before, "HEAD" means the latest version.
