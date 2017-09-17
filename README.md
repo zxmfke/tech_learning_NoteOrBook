@@ -1,1 +1,4 @@
-# tech_learning_note
+# Git
+
+The note when I learning git.
+
