@@ -1,1 +1,163 @@
+什么是组件？
+组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。
+///////////////////////////////////////////////////////////////////////////////////
+使用组件
 
+#建立实体
+<div id="example">
+<my-component></my-component>
+</div>
+
+// 注册
+Vue.component('my-component', {
+template: '<div>A custom component!</div>'
+})
+// 创建根实例
+new Vue({
+el: '#example'
+})
+
+#局部注册
+不必在全局注册每个组件。通过使用组件实例选项注册，可以使组件仅在另一个实例/组件的作用域中可用：
+var Child = {
+template: '<div>A custom component!</div>'
+}
+new Vue({
+// ...
+components: {
+// <my-component> 将只在父模板可用
+'my-component': Child
+}
+})
+
+#DOM 模版解析说明
+在自定义组件中使用这些受限制的元素时会导致一些问题，例如：
+<table> <my-row>...</my-row> </table>
+自定义组件 <my-row> 被认为是无效的内容，因此在渲染的时候会导致错误。变通的方案是使用特殊的 is 属性：
+<table> <tr is="my-row"></tr> </table>
+
+#data必须是函数
+<div id="example-2">
+<simple-counter></simple-counter>
+<simple-counter></simple-counter>
+<simple-counter></simple-counter>
+</div>
+
+var data = { counter: 0 }
+Vue.component('simple-counter', {
+template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+ // 技术上 data 的确是一个函数了，因此 Vue 不会警告，
+ // 但是我们返回给每个组件的实例的却引用了同一个data对象
+ data: function () {
+return data
+}
+})
+new Vue({
+el: '#example-2'
+})
+
+
+改成
+data: function () {
+return {
+counter: 0
+}
+}
+
+#构成组件
+父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件
+在 Vue.js 中，父子组件的关系可以总结为 props down, events up 。父组件通过 props 向下传递数据给子组件，子组件通过 events 给父组件发送消息。
+
+![image](https://github.com/zxmfke/tech_learning_NoteOrBook/blob/master/Vue/assets/Image.png)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+Prop
+
+#使用prop传递数据
+组件实例的作用域是孤立的。这意味着不能(也不应该)在子组件的模板内直接引用父组件的数据。要让子组件使用父组件的数据，我们需要通过子组件的props选项。
+子组件要显式地用 props 选项声明它期待获得的数据：
+Vue.component('child', {
+// 声明 props
+props: ['message'],
+// 就像 data 一样，prop 可以用在模板内
+// 同样也可以在 vm 实例中像 “this.message” 这样使用
+template: '<span>{{ message }}</span>'
+})
+
+<child message="hello!"></child>
+
+#camelCase vs. kebab-case
+HTML 特性是不区分大小写的。所以，当使用的不是字符串模版，camelCased (驼峰式) 命名的 prop 需要转换为相对应的 kebab-case (短横线隔开式) 命名：
+Vue.component('child', {
+// camelCase in JavaScript
+props: ['myMessage'],
+template: '<span>{{ myMessage }}</span>'
+})
+
+<!-- kebab-case in HTML -->
+<child my-message="hello!"></child>
+
+#动态Prop
+在模板中，要动态地绑定父组件的数据到子模板的props，与绑定到任何普通的HTML特性相类似，就是用 v-bind。每当父组件的数据变化时，该变化也会传导给子组件：
+<div>
+<input v-model="parentMsg">
+<br>
+<child v-bind:my-message="parentMsg"></child>
+</div>
+
+#字面量语法vs动态语法
+<!-- 传递了一个字符串 "1" -->
+<comp some-prop="1"></comp>
+<!-- 传递实际的 number -->
+<comp v-bind:some-prop="1"></comp>
+
+#单向数据流 讲得比较简单
+
+#Prop验证 需要额外的资料
+//////////////////////////////////////////////////////////////////
+自定义事件
+
+#使用v-on绑定自定义事件
+每个 Vue 实例都实现了事件接口(Events interface)，即：
+- 使用 $on(eventName) 监听事件
+- 使用 $emit(eventName) 触发事件
+
+不能用$on侦听子组件抛出的事件，而必须在模板里直接用v-on绑定，就像以下的例子：
+<div id="counter-event-example">
+<p>{{ total }}</p>
+<button-counter v-on:increment="incrementTotal"></button-counter>
+<button-counter v-on:increment="incrementTotal"></button-counter>
+</div>
+
+Vue.component('button-counter', {
+template: '<button v-on:click="increment">{{ counter }}</button>',
+data: function () {
+return {
+counter: 0
+}
+},
+methods: {
+increment: function () {
+this.counter += 1
+this.$emit('increment')
+}
+},
+})
+new Vue({
+el: '#counter-event-example',
+data: {
+total: 0
+},
+methods: {
+incrementTotal: function () {
+this.total += 1
+}
+}
+})
+
+
+#使用自定义事件的表单输入组件
+自定义事件可以用来创建自定义的表单输入组件，使用 v-model 来进行数据双向绑定
+
+#非父子组件通信 资料不全
+/////////////////////////////////////////////////////////////////////////
