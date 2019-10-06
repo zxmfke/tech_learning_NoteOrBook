@@ -95,7 +95,7 @@ func (p *Pizza) OrderPizza(typ,store string) *Pizza{
 
 **范例代码**
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/factory_pattern/factory_pattern_factory_method/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/factory_pattern/factory_pattern_factory_method/example
 
 范例代码为一个商店卖汉堡，商店的接口定义了下单接口，Mcdonald实现下单接口。下单方法里面通过typ string来决定要实例化的对象，也就是哪一种汉堡。汉堡接口定义了Prepare(),Bake(),Package()和GetName()方法，然后超类Hamburger实现了这四个方法，即实现了汉堡接口。DoubleCheeseBurger，BigMac和Unworthy分别继承了Hamburger超类，即也实现了汉堡接口。
 
