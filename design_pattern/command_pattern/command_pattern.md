@@ -121,7 +121,7 @@
 
 #### 范例代码
 
-代码 ： http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/command_pattern/example
+代码 ：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/command_pattern/example
 
 代码实现一个简单的遥控器，通过设定不同的命令来控制电灯。
 
