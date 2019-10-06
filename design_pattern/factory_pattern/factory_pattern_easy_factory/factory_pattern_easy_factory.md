@@ -59,7 +59,7 @@ func main() {
 
 **范例代码**
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/factory_pattern/factory_pattern_easy_factory/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/factory_pattern/factory_pattern_easy_factory/factory_pattern_easy_factory.mdexample
 
 范例代码为我们要创建一个汉堡，但是我们只要输入我们要的汉堡类型就可以了，不需要知道这个汉堡是怎么做出来的。
 
