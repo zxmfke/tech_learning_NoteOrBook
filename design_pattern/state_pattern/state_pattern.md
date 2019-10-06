@@ -173,7 +173,7 @@ func (s *SugarMachine) dispense() {
 
 #### 代码范例
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/state_pattern/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/state_pattern/example
 
 范例代码就是用状态模式实现例子的代码
 
