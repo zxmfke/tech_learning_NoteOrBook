@@ -58,7 +58,7 @@
 
 **范例代码**
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/decorator_pattern/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/decorator_pattern/example
 
 Coffee是一个interface，Decaf，Espresso，DarkRoast和Condiment实现GetDescription和Cost方法。Condiment实现了一个对Coffee对象的指定。Milk，Whip和Mocha实现并覆写了Coffee interface的方法。Milk，Whip和Mocha装饰着Coffee。
 
