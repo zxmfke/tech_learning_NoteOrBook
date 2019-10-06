@@ -215,7 +215,7 @@ func NewWoodDucky() *WoodDucky {
 
 ---
 
-代码范例：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/strategy_pattern/example
+代码范例：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/strategy_pattern/example
 
 代码中的class_diagram如下
 
