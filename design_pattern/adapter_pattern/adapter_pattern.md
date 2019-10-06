@@ -62,8 +62,7 @@ type Turkey interface{
 
 **范例代码**
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/adapter_pattern/example
-
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/adapter_pattern/example
 分别用对象适配器和类适配器实现适配器模式范例代码
 
 这两种方式的主要区别在于Adapter中Quack的实现方式
