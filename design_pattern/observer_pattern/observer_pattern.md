@@ -65,7 +65,7 @@
 
 代码范例
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/observer_pattern/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/observer_pattern/example
 
 下图为范例代码的类图
 
