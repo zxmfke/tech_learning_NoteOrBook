@@ -217,7 +217,7 @@ func (c *CoffeeWithHook) customerWantsCondimentsI() bool{
 
 #### 代码范例
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/template_method_pattern/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/template_method_pattern/example
 
 范例代码就是实现上面讲的例子
 
