@@ -70,7 +70,7 @@
 
 #### 代码范例
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/iterator_pattern/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/iterator_pattern/example
 
 代码封装slice和list的iterator
 
