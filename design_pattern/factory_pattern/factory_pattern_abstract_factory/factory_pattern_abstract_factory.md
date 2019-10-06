@@ -151,7 +151,7 @@ engineer.makeComputer(1,1)
 
 **范例代码**
 
-代码：http://192.168.1.189/navi/wiki/tree/master/msa/design_pattern/factory_pattern/factory_pattern_abstract_factory/example
+代码：https://github.com/zxmfke/tech_learning_NoteOrBook/edit/master/design_pattern/factory_pattern/factory_pattern_abstract_factory/example
 
 范例代码通过抽象工厂模式将原本的简易工厂模式修改了一下
 
